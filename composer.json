@@ -1,0 +1,27 @@
+{
+    "name": "rudenyl_eeweb/acpclient",
+    "description": "ACP REST API client.",
+    "authors": [
+        {
+            "name": "Dhens",
+            "email": "rudenyl.eeweb@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+        "illuminate/support": "~5.0.17|5.1.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4",
+        "mockery/mockery": "~0.9"
+    },
+    "autoload": {
+        "classmap": [
+        ],
+        "psr-4": {
+            "ACPClient\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
