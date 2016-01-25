@@ -15,7 +15,7 @@ Then in your ```composer.json```, add:
 ```
 {
     "require": {
-        "rudenyl-eeweb/acpclient": "*"
+        "rudenyl-eeweb/acpclient": "dev-master"
     },
     "minimum-stability": "dev"
 }
