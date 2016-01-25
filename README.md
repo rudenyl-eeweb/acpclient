@@ -5,7 +5,7 @@ To install through composer, set the repository entry as below:
     "repositories": [
         {
             "type": "git",
-            "url": "https://rudenyl@bitbucket.org/rudenyl/acpclient.git"
+            "url": "git@github.com:rudenyl-eeweb/acpclient.git"
         }
     ]
 }
@@ -15,7 +15,7 @@ Then in your ```composer.json```, add:
 ```
 {
     "require": {
-        "rudenyl/acpclient": "*"
+        "rudenyl-eeweb/acpclient": "*"
     },
     "minimum-stability": "dev"
 }
