@@ -60,6 +60,9 @@ class RESTClient
      */
     protected function process_method($url, $method = 'GET', $parameters = [], $headers = [])
     {
+        isset($this->last_message) and $this->last_message = null;
+        isset($this->last_error) and $this->last_error = null;
+
         $client = clone $this;
         $method = strtoupper($method);
 
@@ -139,6 +142,20 @@ class RESTClient
         return $this->connected;
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * Get last error message
+     */
+    public function get_last_error()
+    {
+        $response = isset($this->response->error) ? $this->response->error : null;
+        $message = is_array($response) && isset($response['message']) ? $response['message'] : $response;
+        empty($message) and $message = $this->last_message;
+
+        return $message;
+    }
+>>>>>>> master
 
     /**
      * Handle call to __call method.
