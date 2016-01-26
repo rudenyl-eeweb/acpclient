@@ -142,8 +142,6 @@ class RESTClient
         return $this->connected;
     }
 
-<<<<<<< HEAD
-=======
     /**
      * Get last error message
      */
@@ -155,7 +153,6 @@ class RESTClient
 
         return $message;
     }
->>>>>>> master
 
     /**
      * Handle call to __call method.
