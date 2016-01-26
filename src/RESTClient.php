@@ -30,6 +30,11 @@ class RESTClient
     /**
     * @var boolean
     */
+    public $connected = false;
+
+    /**
+    * @var boolean
+    */
     public $debug = false;
 
     /**
@@ -126,6 +131,14 @@ class RESTClient
         return $this;
     }
 
+    /**
+     * Get connection status
+     */
+    public function connected()
+    {
+        return $this->connected;
+    }
+
 
     /**
      * Handle call to __call method.
@@ -182,8 +195,10 @@ class RESTClient
         #
         switch ($method) {
             case 'authenticate':
-                return $this->process_method('authenticate', 'POST', $this->credentials);
-                break;
+                $proc = $this->process_method('authenticate', 'POST', $this->credentials);
+                isset($this->response->token) and $this->connected = true;
+
+                return $proc;
         }
 
         if (!method_exists($this, $method)) {
