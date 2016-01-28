@@ -94,6 +94,9 @@ class RESTClient
         $headers = is_array($headers) ? array_merge($this->headers, $headers) : $headers;
         $headers and $curl_options[CURLOPT_HTTPHEADER] = $headers;
 
+        # set options
+        is_array($parameters) and $parameters = array_merge($this->options, $parameters);
+
         if ($method <> 'GET') {
             if ($method == 'POST') {
                 $curl_options[CURLOPT_POST] = true;
