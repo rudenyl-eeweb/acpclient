@@ -176,14 +176,14 @@ class RESTClient
             $options = array_shift($arguments);
 
             if (is_array($options)) {
-                $this->$method = array_merge($this->options, $options);
+                $this->$method = array_merge($this->$method, $options);
             }
             else {
                 if (is_null($options)) {
                     $this->$method; // getter
                 }
                 else {
-                    $this->$method[$option] = $arguments ? array_shift($arguments) : null;
+                    $this->$method[$options] = $arguments ? array_shift($arguments) : null;
                 }
             }
 
