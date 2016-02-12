@@ -173,21 +173,40 @@ class RESTClient
         # Set options/headers
         #
         if (in_array($method, ['options', 'headers'])) {
-            $options = array_shift($arguments);
+            $param1 = array_shift($arguments);
 
-            if (is_array($options)) {
-                $this->$method = array_merge($this->$method, $options);
-            }
-            else {
-                if (is_null($options)) {
-                    $this->$method; // getter
+            if (is_array($param1)) {
+                if ($method == 'options') {
+                    $this->$method = array_merge($this->$method, $param1);
                 }
                 else {
-                    $this->$method[$options] = $arguments ? array_shift($arguments) : null;
+                    foreach ($param1 as $k => $v) {
+                        $value = "{$k}: {$v}";
+                        empty($v) and $value = $k;
+
+                        array_unshift($this->$method, $value);
+                    }
+                }
+
+                return $this;
+            }
+
+            if (is_null($param1)) {
+                return $this->$method; // getter
+            }
+
+            if ($arguments) {
+                $param2 = array_shift($arguments);
+
+                if ($method == 'options') {
+                    $this->$method[$param1] = $param2;
+                }
+                else {
+                    array_unshift($this->$method, "{$param1}: {$param2}");
                 }
             }
 
-            return $this->$method;
+            return $this;
         }
 
         #
