@@ -40,7 +40,7 @@ class RESTClient
     /**
     * @var array
     */
-    protected $HTTP_methods = ['get', 'post', 'delete', 'put', 'options'];
+    protected $HTTP_methods = ['get', 'post', 'delete', 'put', 'patch', 'options'];
 
     /**
      * Creates a new REST client instance
